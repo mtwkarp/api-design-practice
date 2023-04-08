@@ -13,15 +13,21 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 
-app.get('/', (req, res) => {
-    console.log('hello from express')
-    res.status(200)
-    res.json({message: 'hello'})
+app.get('/', (req, res, next) => {
+    setTimeout(() => {
+        next('oops')
+    },1)
+    // res.status(200)
+    // res.json({message: 'hello'})
 });
 
+
 app.use('/api', protect, router)
-// app.use('/api', router)
 app.post('/user', createNewUser)
 app.post('/signin', signin)
+app.use((err, req, res, next) => {
+    console.log(err)
+    res.json({message: err})
+})
 
 export default app
