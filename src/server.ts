@@ -14,11 +14,8 @@ app.use(express.urlencoded({extended: true}))
 
 
 app.get('/', (req, res, next) => {
-    setTimeout(() => {
-        next('oops')
-    },1)
-    // res.status(200)
-    // res.json({message: 'hello'})
+    res.status(200)
+    res.json({message: 'hello'})
 });
 
 

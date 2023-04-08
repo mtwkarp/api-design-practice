@@ -3,8 +3,8 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 import app from './server'
+import config from './config'
 
-app.listen(8000, () => {
-    console.log('starting server on port 8000 ...')
+app.listen(config.port, () => {
+    console.log(`starting server on port ${config.port} ...`)
 })
-
