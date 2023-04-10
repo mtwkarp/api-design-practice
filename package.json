@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "build": "rm -rf ./dist && tsc -p tsconfig.build.json",
+    "start:build": "STAGE=production node dist/index.js"
   },
   "keywords": [],
   "author": "",
